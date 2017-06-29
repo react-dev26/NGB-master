@@ -1,0 +1,163 @@
+$track-border-color: #cccccc;
+$track-header-background-color: #eeeeee;
+
+canvas {
+  vertical-align: middle;
+}
+
+ngb-track {
+  display: block;
+  z-index: 0;
+  width: 100%;
+  .hide-track {
+    position: inherit;
+    right: 0;
+    ng-md-icon svg {
+      background-color: $track-header-background-color;
+    }
+  }
+}
+
+.ngb-track-header-type {
+  margin-right: 10px;
+}
+
+.ngb-track-header-file-name {
+  margin-right: 10px;
+}
+
+.ngb-track-container {
+  background-color: #ffffff;
+  margin: 1px 5px 0px 5px;
+  border: 1px solid $track-border-color;
+  position: relative;
+
+  &.collapsed {
+    margin: 0px 5px 0px 5px;
+    border-top: 0px;
+  }
+}
+
+ngb-track .ngb-track-container {
+  box-shadow: 0 0 0 0 white;
+  transition: box-shadow .1s ease-in-out;
+}
+
+ngb-track.dndDragging .ngb-track-container, ngb-track.resizing .ngb-track-container {
+  box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.5);
+}
+
+.ngb-track-ruler-container {
+  margin: 5px 5px 0px 5px;
+  padding: 1px;
+}
+
+.ngb-track-header {
+  height: 20px;
+  font-size: 9pt;
+  background-color: $track-header-background-color;
+  border-bottom: 1px solid $track-border-color;
+  color: black;
+  cursor: move;
+  margin-bottom: 2px;
+  padding-left: 5px;
+
+  &.collapsed {
+    display: none;
+  }
+}
+
+.ngb-track-header-floating {
+  position: absolute; 
+  top: 0px; 
+  right: 0px; 
+  z-index: 1;
+  font-size: 12px;
+  min-height: 20px;
+  line-height: 20px;
+  text-transform: none;
+  opacity: .40;
+
+  .track-title {
+    cursor: move;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.collapsed {
+    display: none;
+  }
+}
+
+.ngb-track-header-hidden {
+  visibility: hidden;
+  height: 0px;
+}
+
+.ngb-track-renderer {
+
+}
+
+.track-info-tooltip {
+  width: 300px;
+  height: 50px;
+  margin: 0 35%;
+  background-color: #edee2d;
+}
+
+.ngb-resize-panel {
+  height: 5px;
+  background-color: transparent;
+  cursor: ns-resize;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.ngb-track-placeholder {
+  height: 1px;
+  background: transparent;
+}
+ngb-track-menu {
+  display: block;
+}
+
+.buttons-menu-track{
+  margin-left: auto;
+  margin-right: 0;
+  .track-button {
+    padding-right: 0;
+    margin:0 5px;
+    cursor: pointer;
+    &.close {
+      margin-right: 0;
+    }
+    &.mini {
+      min-width: 0;
+      min-height: 0;
+      padding: 0;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.button-icon{
+  fill: rgb(119, 119, 119);
+}
+
+.link-action{
+  margin-left: 4px;
+}
+
+.ngb-track-header-action-group-links {
+  margin-left: 6px;
+}
+
+.track-loader-minified {
+  margin-left: 6px;
+  margin-right: 6px;
+}

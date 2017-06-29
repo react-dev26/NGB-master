@@ -1,0 +1,28 @@
+<ngb-tracks-view layout-fill ng-if="$ctrl.isChromosome"></ngb-tracks-view>
+<ngb-project-info-panel layout-fill ng-if="!$ctrl.isChromosome && $ctrl.isProject"></ngb-project-info-panel>
+<div layout-fill ng-if="$ctrl.isProjectLoading" class="browser-welcome-container">
+    <div layout="column" layout-align="center center" class="browser-welcome">
+        <div>
+            <h1>
+                Loading...
+            </h1>
+        </div>
+    </div>
+</div>
+<div layout-fill ng-if="!$ctrl.isProjectLoading && !$ctrl.isProject && !$ctrl.isChromosome" class="browser-welcome-container">
+    <div layout="column" layout-align="center center" class="browser-welcome" ng-if="!$ctrl.projectContext.browserHomePageUrl">
+        <div>
+            <h1>
+                Choose files or folders<br/>
+                on <strong>Datasets</strong> panel.
+            </h1>
+            <p><strong>Click</strong> on <strong>expand button</strong>
+                (<ng-md-icon icon="play_arrow" class="dataset-icon" size="13pt"></ng-md-icon>) to open folder.</p>
+            <p><strong>Click</strong> on <strong>checkbox</strong> to select/deselect all folder's <br/>tracks or particular track.</p>
+            <h3>What if there's no Datasets panel?</h3>
+            <p>Click on the "view" (<ng-md-icon icon="dashboard" size="15"></ng-md-icon>) button on the left toolbar<br/>
+                and select the "Datasets" option.</p>
+        </div>
+    </div>
+    <iframe ng-if="$ctrl.projectContext.browserHomePageUrl" ng-src="{{$ctrl.browserHomePageUrl()}}"></iframe>
+</div>

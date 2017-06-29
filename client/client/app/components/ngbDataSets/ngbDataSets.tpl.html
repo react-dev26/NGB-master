@@ -1,0 +1,48 @@
+<div layout="row" class="u-height__full" layout-wrap>
+    <div layout="column" flex ng-show="!$ctrl.isLoading" flex="100">
+        <div class="md-toolbar-panel md-whiteframe-2dp">
+            <div layout="row" class="u-column-padding">
+                <md-input-container md-no-float class="md-block md-input-container__simple md-input-container__nospacer"
+                                    flex>
+                    <input type="text" ng-model="$ctrl.searchPattern" placeholder="Search..."/>
+                </md-input-container>
+                <md-button class="md-icon-button datasets-action"
+                           aria-label="Close"
+                           ng-if="$ctrl.searchPattern && $ctrl.searchPattern.length > 0"
+                           ng-click="$ctrl.clearSearch()">
+                    <ng-md-icon icon="clear" size="20"></ng-md-icon>
+                </md-button>
+                <md-button class="md-icon-button datasets-action"
+                           aria-label="Refresh"
+                           ng-click="$ctrl.refreshDatasets()">
+                    <ng-md-icon icon="refresh" size="20"></ng-md-icon>
+                </md-button>
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <md-content flex>
+
+            <md-virtual-repeat-container  ng-if="!$ctrl.nothingFound" class="vertical-container" flex >
+                <div md-virtual-repeat="node in $ctrl.datasets | filter:$ctrl.filter()" md-item-size="20" flex>
+                    <div ng-include="$ctrl.getTemplateNode(node)"></div>
+                </div>
+            </md-virtual-repeat-container>
+
+            <div ng-if="!$ctrl.noDatasets && $ctrl.nothingFound" flex class="datasets-warning">
+                <span>No datasets found for <strong>{{$ctrl.searchPattern}}</strong></span>
+            </div>
+            <div ng-if="$ctrl.noDatasets" flex class="datasets-warning">
+                <span>Datasets list is empty</span>
+            </div>
+
+        </md-content>
+    </div>
+
+    <div ng-show="$ctrl.isLoading" flex="100">
+        <div class="progress" layout-align="center center">
+        <span>Loading datasets...</span>
+        </div>
+        <md-progress-linear md-mode="query"></md-progress-linear>
+    </div>
+
+</div>

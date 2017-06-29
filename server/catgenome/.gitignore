@@ -1,0 +1,16 @@
+/H2
+/out
+/build
+/contents
+/.settings
+/.classpath
+/.idea
+/.gradle
+catgenome.iml
+catgenome.ipr
+catgenome.iws
+/catgenome.iws
+/src/main/resources/static/app.bundle.js
+/src/main/resources/static/index.html
+/src/main/resources/static/app.css
+/src/main/resources/static/icons-*
